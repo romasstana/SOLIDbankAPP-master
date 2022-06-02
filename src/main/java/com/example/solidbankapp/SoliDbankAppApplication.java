@@ -8,8 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
+import org.springframework.context.annotation.Bean;
 @SpringBootApplication
+
 //@EnableJdbcRepositories
 //@AllArgsConstructor
 public class SoliDbankAppApplication implements CommandLineRunner {
@@ -19,7 +20,14 @@ public class SoliDbankAppApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(SoliDbankAppApplication.class);
     }
-
+//    @Bean
+//    public Docket swaggerConfig(){
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .select()
+//                .paths(PathSelectors.ant("/api/*"))
+//                .apis(RequestHandlerSelectors.basePackage("io.ramazan"))
+//                .build();
+//    }
     @Override
     public void run(String... arg0) throws Exception {
         boolean running = true;

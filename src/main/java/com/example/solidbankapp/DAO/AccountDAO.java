@@ -27,4 +27,7 @@ public interface AccountDAO extends CrudRepository<Account, String> {
     Account getClientWithdrawAccount(String clientID, String accountID);
     @Query("SELECT * FROM Account WHERE Id=:accountID AND client_id=:clientID")
     Account getClientAccount(String clientID, String accountID);
+    @Modifying
+    @Query("DELETE FROM Account where id=:accountId")
+    void deleteAccount(String accountId);
 }

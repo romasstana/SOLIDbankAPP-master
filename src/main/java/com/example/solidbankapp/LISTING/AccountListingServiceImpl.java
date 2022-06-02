@@ -30,7 +30,7 @@ public class AccountListingServiceImpl implements AccountListingService {
         if(account==null|| !account.isWithdrawAllowed()){
             return null;
         }
-        return new AccountWithdraw( account.getAccountType(), account.getId(),account.getClientId(), account.getBalance(), account.isWithdrawAllowed());
+        return new AccountWithdraw( account.getId(), account.getAccountType(),account.getClientId(), account.getBalance(), account.isWithdrawAllowed());
     }
 
     @Override

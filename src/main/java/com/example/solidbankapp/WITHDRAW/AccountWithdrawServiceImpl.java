@@ -4,7 +4,7 @@ import com.example.solidbankapp.ACCOUNT.Account;
 import com.example.solidbankapp.DAO.AccountDAO;
 import com.example.solidbankapp.WITHDRAW.AccountWithdraw;
 import com.example.solidbankapp.WITHDRAW.AccountWithdrawService;
-import com.sun.istack.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -32,6 +32,7 @@ public class AccountWithdrawServiceImpl implements AccountWithdrawService {
             account.setBalance(account.getBalance()-amount);
         String str = String.format("%.2f", amount);
         System.out.println(str+"$ transferred from " + account.getId() + " account");
+            System.out.println(account.getAccountType()+ " account type");
         accountDAO.updateAccount(account.getId(), account.getClientId(), account.getBalance());
         }
     }

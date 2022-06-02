@@ -25,7 +25,7 @@ public class TransactionDeposit {
     void execute(AccountWithdraw accountWithdraw, AccountWithdraw accountWithdraw2, double amount){
 
     }
-    void execute(Account account, double amount){
+    public void execute(Account account, double amount){
         accountDepositService.deposit(amount, account);
         Transaction transaction = new Transaction(account.getId(), "deposit", account.getClientId(), amount, account.getBalance());
         transactionRepository.addTransaction(transaction.getId(), transaction.getTransactionType(), transaction.getClientId(), transaction.getAmount(), transaction.getBalance());
