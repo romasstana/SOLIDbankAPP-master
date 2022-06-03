@@ -70,10 +70,12 @@ public class RestController {
     @PostMapping("/{account_id}/withdraw")
     public void postWithdraw(@RequestBody RequestTransaction requestTransaction, @PathVariable("account_id") String accountId){
         transactionWithdraw.execute(accountListingService.getClientWithdrawAccount("1", accountId), requestTransaction.amount);
+        System.out.println(requestTransaction.amount + "$ was transferred from " + accountListingService.getClientWithdrawAccount("1", accountId));
     }
     @PostMapping("/{account_id}/deposit")
     public void postDeposit(@RequestBody RequestTransaction requestTransaction, @PathVariable("account_id") String accountId){
         transactionDeposit.execute(accountListingService.getClientAccount("1", accountId), requestTransaction.amount);
+        System.out.println(requestTransaction.amount + "$ was transferred to " + accountListingService.getClientAccount("1", accountId));
     }
 
 }
