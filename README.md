@@ -4,3 +4,8 @@
 ```sh
 java -jar SOLIDbankAPP.jar
 ```
+ С помощью 
+ ```sh
+http://localhost:8080/swagger-ui/index.html#/
+```
+Мы можем открыть ссылку на swagger и выполнять операции оттуда
