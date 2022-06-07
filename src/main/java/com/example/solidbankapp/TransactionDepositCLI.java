@@ -15,7 +15,7 @@ public class TransactionDepositCLI {
         this.accountListingService = accountListingService;
     }
 
-    public void depositMoney(String clientID){
+    public void depositMoney(String clientID) throws Exception {
         transactionDeposit.execute(accountListingService.getClientAccount(clientID, withdrawDepositOperationCLIUI.requestClientAccountNumber()), withdrawDepositOperationCLIUI.requestClientAmount());
 
     }

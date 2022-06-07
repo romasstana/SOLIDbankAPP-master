@@ -20,7 +20,11 @@ public class AccountListingServiceImpl implements AccountListingService {
     }
 
     @Override
-    public Account getClientAccount(String clientID, String accountID) {
+    public Account getClientAccount(String clientID, String accountID) throws Exception {
+        Account account = accountDAO.getClientAccount(clientID, accountID);
+        if(account == null){
+            throw new Exception("Account not found");
+        }
         return accountDAO.getClientAccount(clientID, accountID);
     }
 

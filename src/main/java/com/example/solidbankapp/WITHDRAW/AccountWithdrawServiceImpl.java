@@ -19,14 +19,17 @@ public class AccountWithdrawServiceImpl implements AccountWithdrawService {
         this.accountDAO = accountDAO;
     }
 
-    public void withdraw(Account account, double amount){
+    public void withdraw(Account account, double amount) throws Exception {
         if(account== null){
             System.out.println("EXCEPTION");
-            return;
+            throw new Exception("Account not found");
         }
         if(account.getAccountType()=="FIXED"){
             System.out.println("This is fixed account");
-            return;
+            throw new Exception("Fixed account");
+        }
+        if(account.getBalance()<=amount && account.getBalance()==0.0){
+            throw new Exception("Not enough money");
         }
         if(account.getBalance()>=amount){
             account.setBalance(account.getBalance()-amount);

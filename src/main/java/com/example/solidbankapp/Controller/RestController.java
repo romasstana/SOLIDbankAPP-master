@@ -43,8 +43,8 @@ public class RestController {
     }
 
     @GetMapping("/account_id")
-    public Account getAccountById(@RequestParam String clientId, String accountId){
-        return accountDAO.getClientAccount(clientId, accountId);
+    public Account getAccountById(@RequestParam String clientId, String accountId) throws Exception {
+        return accountListingService.getClientAccount(clientId, accountId);
     }
 
 
@@ -68,12 +68,13 @@ public class RestController {
     }
 
     @PostMapping("/{account_id}/withdraw")
-    public void postWithdraw(@RequestBody RequestTransaction requestTransaction, @PathVariable("account_id") String accountId){
+    public void postWithdraw(@RequestBody RequestTransaction requestTransaction, @PathVariable("account_id") String accountId) throws Exception {
+
         transactionWithdraw.execute(accountListingService.getClientWithdrawAccount("1", accountId), requestTransaction.amount);
         System.out.println(requestTransaction.amount + "$ was transferred from " + accountListingService.getClientWithdrawAccount("1", accountId));
     }
     @PostMapping("/{account_id}/deposit")
-    public void postDeposit(@RequestBody RequestTransaction requestTransaction, @PathVariable("account_id") String accountId){
+    public void postDeposit(@RequestBody RequestTransaction requestTransaction, @PathVariable("account_id") String accountId) throws Exception {
         transactionDeposit.execute(accountListingService.getClientAccount("1", accountId), requestTransaction.amount);
         System.out.println(requestTransaction.amount + "$ was transferred to " + accountListingService.getClientAccount("1", accountId));
     }

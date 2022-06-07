@@ -22,7 +22,7 @@ public class TransactionWithdraw {
         this.transactionRepository = transactionRepository;
     }
 
-    public void execute(Account account, double amount){
+    public void execute(Account account, double amount) throws Exception {
         accountWithdrawService.withdraw(account, amount);
         Transaction transaction = new Transaction(account.getId(), "withdraw", account.getClientId(),amount, account.getBalance());
         transactionRepository.addTransaction(transaction.getId(), transaction.getTransactionType(), transaction.getClientId(), transaction.getAmount(), transaction.getBalance());

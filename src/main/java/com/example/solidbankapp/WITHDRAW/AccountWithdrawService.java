@@ -6,5 +6,5 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface AccountWithdrawService {
-    void withdraw(Account account, double amount);
+    void withdraw(Account account, double amount) throws Exception;
 }
